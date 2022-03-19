@@ -1,65 +1,104 @@
-<!-- This is a blank template.  You can copy this to make a new template page. -->
-
 {% extends 'base.html' %}
 
 {% block body %}
 <div class="container">
-    <div class="row">
-        <div class="col-6">
-            <h4 class="fw-light">about the desinger</h4>
-            <p class="fw-lighter">
-                hello and welcome my name is leah marquez. i am a senior at oakland technical high school.
-                for our senior year we need to complete a research project. i chose to study a sense of 
-                place and belonging because being adopted has changed how i belong in the world. in the photo to the right you can see my biological mother holding me as a new
-                born baby.
-            </p>
-            <br>
-            <h5 class="fw-light">purpose</h5>
-            <p class="fw-lighter">
-                my goal is to create an online space where everyone can belong. i learned that a feeling
-                of belonging cannot be forced but it can be welcomed. i am creating a space where 
-                people can share vulnerable parts of themselves in order to create real connections with
-                others.
-            </p>
-        </div>
-        <div class="col-6">
-            <img src="static/sallyvaldez.jpg" height="300" width="230px">
-            <img src="static/me.JPG" height="300" width="230px">
-        </div>
+    <div class="row mt-4 py-4 rounded" style="height:250px; text-align:center; background-color:rgb(245,245,245);">
+        <h7></h7>
+        <h1 class="display-3">about us</h1>
     </div>
+
     <br>
+
     <div class="row">
-        <div class="col-6">
-            <img src="static/leah.jpg" class="mx-auto d-block" height="250" width="400" alt="...">
-        </div>
-        <div class="col-6">
-            <h4 class="fw-light">user interactivity</h4>
-            <p class="fw-lighter">
-                user story: nate is a student who during covid did nothing but lay in his bed. 
-                he was unable to go out to his favorite cafe or soccer field. his place of 
-                comfort was disrupted. he wants to learn how to recreate a place he feels 
-                comfortable and like he belongs. he opens up a sense of place website and is 
-                faces with three options. he can upload his own “home” or view others, he can do 
-                a challenge as an attempt to create different “homes”, or he can message with 
-                others discussing experiences. nate being quite competitive clicked the challenge 
-                option and was faced with a checklist of activities to complete.
-            </p>
+        <h2 class="fw-light my-4" style="text-align:center">purpose + interactivity</h2>
+        <p class="fw-lighter">
+            our goal is to create an online space where everyone can belong. we've learned that a feeling
+            of belonging cannot be forced but it can be welcomed. we are creating a space where 
+            people can share vulnerable parts of themselves in order to create real connections with
+            others.
+        </p>
+        <br>
+        <p class="fw-lighter">
+            user story: nate is a student who during covid did nothing but lay in his bed. 
+            he was unable to go out to his favorite cafe or soccer field. his place of 
+            comfort was disrupted. he wants to learn how to recreate a place he feels 
+            comfortable and like he belongs. he opens up a sense of place website and is 
+            faces with three options. he can upload his own “home” or view others, he can do 
+            a challenge as an attempt to create different “homes”, or he can message with 
+            others discussing experiences. nate being quite competitive clicked the challenge 
+            option and was faced with a checklist of activities to complete.
+        </p>
     </div>
-    <br><br><br>
+
+    <div class="row py-4 my-4">
+        <div class="col me-2">
+            <div class="row">
+                <h2 class="fw-light my-2">about the designers</h2>
+            </div>
+            <br>
+            <div class="row pt-4 mt-3 rounded" style="background-color:rgb(245,245,245)">
+                <h4 class="fw-light mb-3">leah marquez</h4>
+                <p class="fw-light">
+                    hello and welcome. my name is leah. i am a senior at oakland technical high school.
+                    for our senior year we need to complete a research project. i chose to study a sense of 
+                    place and belonging because being adopted has changed how i belong in the world. in the photo
+                    to the right you can see my biological mother holding me as a newborn baby.
+                </p>
+            </div>
+            <br>
+        </div>
+        <div class="col-auto">
+            <img src="static/sallyvaldez.jpg" height="300px" width="230px">
+        </div>
+        <div class="col-auto">
+            <img src="static/leahchicken.JPG" height="300px" width="230px">
+        </div>
+    </div>
+
+    <br>
+
     <div class="row">
+        <div class="col-auto">
+            <img src="static/julia.jpg" height="225px">
+        </div>
+        <div class="col-auto">
+            <div class="row" style="height:50px"></div>
+            <img src="static/julia1.jpg" height="250px">
+        </div>
+        <div class="col ms-2 pt-2">
+            <div class="row pt-4 mt-4 rounded" style="background-color:rgb(245,245,245)">
+                <h4 class="fw-light mb-3">julia manou</h4>
+                <p class="fw-light">
+                    my name is julia and i'm currently a senior at oakland technical high school.
+                    in my life, i've moved around and gone back and forth between houses since my 
+                    parents are separated. because of this, home was never really a place (like a 
+                    house might be). i've been working on this website as part of my capstone 
+                    project, and i'm looking forward to helping people connect through their shared 
+                    experiences.
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <br>
+
+    <div class="row py-4 my-4">
         <div class="col-6">
-            <img src="static/gabe.jpeg" class="mx-auto d-block" height="250" width="400" alt="...">
+            <img src="static/gabe.jpeg" class="ms-auto d-block" height="250" width="400" alt="...">
         </div>
         <div class="col-6">
             <h4 class="fw-light">the other desinger</h4>
             <p class="fw-lighter">
                 im so cool desinger
             </p>
+        </div>
     </div>
-    <div class="row">
 
-        <p class="text-right">last updated: 03/08/2022</p>
-    </div>
+    <br>
+
+</div>
+
+<div class="container-fluid pt-4 border" style="background-color: #b1dee4;">
+    <p class="pe-4" style="text-align:right">last updated: 03/18/2022</p>
 </div>
 {% endblock %}
-
