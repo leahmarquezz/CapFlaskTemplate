@@ -17,7 +17,7 @@ def load_user(id):
     try:
         return User.objects.get(pk=id)
     except mongoengine.errors.DoesNotExist:
-        flash("Something strange has happened. This user doesn't exist. Please click logout.")
+        flash("something strange has happened. this user doesn't exist. please click logout.")
         return redirect(url_for('index'))
 
 # This is the route that a user uses to login
@@ -32,18 +32,18 @@ def login():
         try:
             user = User.objects.get(username=form.username.data)
         except mongoengine.errors.DoesNotExist:
-            flash('Invalid username or password')
+            flash('invalid username or password')
             return redirect(url_for('login'))
         else:
             if user is None or not user.check_password(form.password.data):
-                flash('Invalid username or password')
+                flash('invalid username or password')
                 return redirect(url_for('login'))
         login_user(user, remember=form.remember_me.data)
         next_page = request.args.get('next')
         if not next_page or url_parse(next_page).netloc != '':
             next_page = url_for('index')
         return redirect(next_page)
-    return render_template('login.html', title='Sign In', form=form)
+    return render_template('login.html', title='sign in', form=form)
 
 # Logout route and function
 @app.route('/logout')
@@ -68,7 +68,7 @@ def register():
         newUser.set_password(form.password.data)
         newUser.save()
 
-        flash('Congratulations, you are now a registered user!')
+        flash('congratulations, you are now a registered user!')
         return redirect(url_for('login'))
 
     return render_template('register.html', title='Register', form=form)
@@ -78,7 +78,7 @@ def register():
 # This funtion does not have a route and is called by other functions.
 def send_password_reset_email(user):
     token = user.get_reset_password_token()
-    send_email('[Capstone] Reset Your Password',
+    send_email('[capstone] reset your password',
                sender='swright@ousd.org',
                recipients=[user.email],
                text_body=render_template('email/reset_password.txt',
@@ -95,17 +95,17 @@ def reset_password(token):
     try:
         user = User.verify_reset_password_token(token)
     except mongoengine.errors.DoesNotExist:
-        flash("I was unable to reset your password.")
+        flash("unable to reset your password.")
         return redirect(url_for('index'))
     else:
         if not user:
-            flash("I was unable to reset your password.")
+            flash("unable to reset your password.")
             return redirect(url_for('index'))
     form = ResetPasswordForm()
     if form.validate_on_submit():
         user.set_password(form.password.data)
         user.save()
-        flash('Your password has been reset.')
+        flash('password has been reset.')
         return redirect(url_for('login'))
     return render_template('reset_password.html', form=form)
 
@@ -118,13 +118,13 @@ def reset_password_request():
         try:
             user = User.objects.get(email=form.email.data)
         except mongoengine.errors.DoesNotExist:
-            flash(f"I was unable to find a user with email {form.email.data}.")
+            flash(f"unable to find user with email {form.email.data}.")
             return redirect(url_for('index'))
         else:
             if user:
                 send_password_reset_email(user)
-                flash('Check your email for the instructions to reset your password')
+                flash('check email for instructions to reset your password')
             else:
-                flash("Sorry, I was unable to find the user to send the reset email. Please try again.")
+                flash("unable to find user to send reset email. please try again.")
         return redirect(url_for('login'))
-    return render_template('reset_password_request.html',title='Reset Password', form=form)
+    return render_template('reset_password_request.html',title='reset password', form=form)

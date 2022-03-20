@@ -19,9 +19,9 @@ def challenge():
 def home():
     return render_template('home.html')
 
-@app.route('/sharehome')
-def sharehome():
-    return render_template('sharehome.html')
+@app.route('/posts')
+def posts():
+    return render_template('posts.html')
 
 @app.route('/userhome')
 def userhome():

@@ -60,10 +60,10 @@ def postDelete(postID):
         # delete the post using the delete() method from Mongoengine
         deletePost.delete()
         # send a message to the user that the post was deleted.
-        flash('The Post was deleted.')
+        flash('the post was deleted.')
     else:
         # if the user is not the author tell them they were denied.
-        flash("You can't delete a post you don't own.")
+        flash("you can't delete a post you don't own.")
     # Retrieve all of the remaining posts so that they can be listed.
     posts = Post.objects()  
     # Send the user to the list of remaining posts.
@@ -95,6 +95,7 @@ def postNew():
             # the left side is the name of the field from the data table
             # the right side is the data the user entered which is held in the form object.
             subject = form.subject.data,
+            posttype = form.posttype.data,
             content = form.content.data,
             author = current_user.id,
             # This sets the modifydate to the current datetime.
@@ -130,7 +131,7 @@ def postEdit(postID):
     # send them back to the post. If True, this will exit the route completely and none
     # of the rest of the route will be run.
     if current_user != editPost.author:
-        flash("You can't edit a post you don't own.")
+        flash("you can't edit a post you don't own.")
         return redirect(url_for('post',postID=postID))
     # get the form object
     form = PostForm()
@@ -139,6 +140,7 @@ def postEdit(postID):
         # update() is mongoengine method for updating an existing document with new data.
         editPost.update(
             subject = form.subject.data,
+            posttype = form.posttype.data,
             content = form.content.data,
             modifydate = dt.datetime.utcnow
         )
@@ -148,6 +150,7 @@ def postEdit(postID):
     # if the form has NOT been submitted then take the data from the editPost object
     # and place it in the form object so it will be displayed to the user on the template.
     form.subject.data = editPost.subject
+    form.posttype.data = editPost.posttype
     form.content.data = editPost.content
 
     # Send the user to the post form that is now filled out with the current information
@@ -182,12 +185,13 @@ def commentNew(postID):
 def commentEdit(commentID):
     editComment = Comment.objects.get(id=commentID)
     if current_user != editComment.author:
-        flash("You can't edit a comment you didn't write.")
+        flash("you can't edit a comment you didn't write.")
         return redirect(url_for('post',postID=editComment.post.id))
     post = Post.objects.get(id=editComment.post.id)
     form = CommentForm()
     if form.validate_on_submit():
         editComment.update(
+            posttype = form.posttype.data,
             content = form.content.data,
             modifydate = dt.datetime.utcnow
         )
@@ -202,5 +206,5 @@ def commentEdit(commentID):
 def commentDelete(commentID): 
     deleteComment = Comment.objects.get(id=commentID)
     deleteComment.delete()
-    flash('The comments was deleted.')
+    flash('the comments was deleted.')
     return redirect(url_for('post',postID=deleteComment.post.id)) 

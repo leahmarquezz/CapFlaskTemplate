@@ -2,43 +2,46 @@
 
 {% block body %}
 
-<div class="row">
-    <div class="col-4">
-        <h1 class="display-1">All Posts</h1>
-    </div>
-    <div class="col">
-        <a href="/post/new" class="btn btn-primary btn-sm mt-5" role="button">New Post</a>
-    </div>
-</div>
-
-{% if posts %}
-    {% for post in posts %}
-        <div class="row border-bottom">
-            <div class="col-2">
-                {% if loop.index == 1 %}
-                <h3 class="display-5">Date</h3>
-                {% endif %}
-
-                <a href="/post/{{post.id}}">
-                    {{moment(post.createdate).calendar()}}
-                </a>
-            </div>
-            <div class="col-2">
-                {% if loop.index == 1 %}
-                <h3 class="display-5">User</h3>
-                {% endif %}
-                {{post.author.username}}
-            </div>
-            <div class="col">
-                {% if loop.index == 1 %}
-                    <h3 class="display-5">Subject</h3>
-                {% endif %}
-                {{post.subject}}
-            </div>
+<div class="container m-4">
+    <div class="row mb-4 pb-4 border-bottom">
+        <div class="col-4">
+            <h1 class="display-3">all posts</h1>
         </div>
-    {% endfor %}
-{% else %}
-    <h1>No Posts</h1>
-{% endif %}
+        <div class="col" style="text-align:right;">
+            <a href="/post/new" class="btn btn-light btn-sm mt-4 border" role="button"><h3 class="fw-light">new post</h3></a>
+        </div>
+    </div>
+
+    {% if posts %}
+        {% for post in posts %}
+            <div class="row border-bottom">
+                <div class="col-2">
+                    {% if loop.index == 1 %}
+                        <h1 class="display-5 mb-2">date</h1>
+                    {% endif %}
+
+                    <a href="/post/{{post.id}}">
+                        <h3 class="fw-light">{{moment(post.createdate).calendar()}}</h3>
+                    </a>
+                </div>
+                <div class="col-2">
+                    {% if loop.index == 1 %}
+                        <h1 class="display-5 mb-2">user</h1>
+                    {% endif %}
+                    <h3 class="fw-light">{{post.author.username}}</h3>
+                </div>
+                <div class="col">
+                    {% if loop.index == 1 %}
+                        <h1 class="display-5 mb-2">subject</h1>
+                    {% endif %}
+                    <h3 class="fw-light">{{post.subject}}</h3>
+                </div>
+            </div>
+        {% endfor %}
+    {% else %}
+        <h1 class="display-5">no posts</h1>
+        <br><br><br><br><br><br><br><br><br>
+    {% endif %}
+</div>
 
 {% endblock %}

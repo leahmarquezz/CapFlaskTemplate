@@ -1,33 +1,36 @@
 {% extends 'base.html' %}
 
 {% block body %}
-<h1 class="display-1">
-    My Profile
-    <a href="/myprofile/edit">
-        <img width="40" src="/static/edit.png">
-    </a>
-</h1>
+<div class="container m-4">
+    <h1 class="display-3 mb-4">
+        my profile
+        <a href="/myprofile/edit">
+            <img width="40" src="/static/edit.png">
+        </a>
+    </h1>
 
-
-<div class="row">
-    <div class="col-2">
-        {% if current_user.image %}
-            <img class="img-thumbnail img-fluid" src="data:image;base64,{{base64encode(current_user.image.read())}}"> <br>
-        {% else %}
-            <img class="img-thumbnail" width = "100" src="/static/bdog.jpg">
-        {% endif %} 
+    <div class="row pt-4 ps-3">
+        <div class="col-2">
+            {% if current_user.image %}
+                <img class="img-thumbnail img-fluid" src="data:image;base64,{{base64encode(current_user.image.read())}}"> <br>
+            {% else %}
+                <img class="img-thumbnail" width = "100" src="/static/bdog.jpg">
+            {% endif %} 
+        </div>
+        <div class="col">
+            <br>
+            <h1 class="display-5">{{current_user.username}}</h1>
+            <h1 class="display-7 fw-light">({{current_user.role}})</h1>
+        </div>
     </div>
-    <div class="col display-5">
+    <div class="row pt-4 ps-3">
+        <h1 class="display-5 mb-3">personal information</h1>
         {% if current_user.fname and current_user.lname %}
-            Real Name: {{current_user.fname}}  {{current_user.lname}} <br>
+            <h3 class="fw-light">name: {{current_user.fname}}  {{current_user.lname}}</h3>
         {% endif %}
-        
-        Username: {{current_user.username}} <br>
-        Email: {{current_user.email}}
+        <h3 class="fw-light">email: {{current_user.email}}</h3>
+        <h3 class="fw-light">age: {{current_user.agerange}}</h3>
     </div>
 </div>
-<br>
-Role: {{current_user.role}} <br>
-
 
 {% endblock %}
