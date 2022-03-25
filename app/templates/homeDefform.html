@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+
+{% block body %}
+<h1>home def form</h1>
+
+<form action="" method="post" enctype="multipart/form-data">
+    {{ form.hidden_tag() }}
+    <p>
+        {{ form.subject.label }} <br>
+        {{ form.subject(size=61) }}
+        {% for error in form.subject.errors %}
+            <span style="color: red;">[{ error }}]</span>
+        {% endfor %}
+    </p>
+    <p>
+        {{ form.definition.label }} <br>
+        {{ form.definition(cols=64, rows=10) }}
+        {% for error in form.definition.errors %}
+            <span style="color: red;">[{{ error }}]</span>
+        {% endfor %}
+    </p>
+    <p>
+        {{ form.homeimg.label }}<br>
+        {% if current_user.homeimg %}
+            <img class="img-thumbnail" width="100" src="data:homeimg;base64,{{base64encode(current_user.homeimg.read())}}"> <br>
+        {% else %}
+            <img class="img-thumbnail" width = "100" src="/static/bdog.jpg">
+        {% endif %} <br>
+        {{ form.homeimg() }}<br>
+        {% for error in form.homeimg.errors %}
+            <span style="color: red;">[{{ error }}]</span>
+        {% endfor %}
+    </p>
+    <p>
+        {{form.submit()}}
+    </p>
+</form>
+        
+{% endblock %}

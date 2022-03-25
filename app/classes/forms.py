@@ -58,7 +58,8 @@ class ProfileForm(FlaskForm):
     image = FileField("image") 
     submit = SubmitField('post')
     role = SelectField('role',choices=[("none","none"),("admin","admin"),("user","user")])
-    agerange = SelectField('age', choices=[("not specified","not specified"),("<12","<12"),("12-17","12-17"),("18-24","18-24"),("25-34","25-34"),("35-44","35-44"),("45-54","45-54"),("55-64","55-64"),("65-74","65-74"),("75+","75+")])
+    agerange = SelectField('age', choices=[("not specified","not specified"),
+    ("<12","<12"),("12-17","12-17"),("18-24","18-24"),("25-34","25-34"),("35-44","35-44"),("45-54","45-54"),("55-64","55-64"),("65-74","65-74"),("75+","75+")])
 
 class PostForm(FlaskForm):
     subject = StringField('subject', validators=[DataRequired()])
@@ -69,3 +70,9 @@ class PostForm(FlaskForm):
 class CommentForm(FlaskForm):
     content = TextAreaField('comment', validators=[DataRequired()])
     submit = SubmitField('post')
+
+class HomeDefForm(FlaskForm):
+    subject = StringField('subject', validators=[DataRequired()])
+    definition = TextAreaField('definition', validators=[DataRequired()])
+    homeimg = FileField('image', validators=[DataRequired()])
+    submit = SubmitField('submit')

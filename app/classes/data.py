@@ -69,3 +69,15 @@ class Comment(Document):
     meta = {
         'ordering': ['-createdate']
     }
+
+class HomeDef(Document):
+    author = ReferenceField('User',reverse_delete_rule=CASCADE) 
+    subject = StringField()
+    definition = StringField()
+    homeimg = FileField()
+    createdate = DateTimeField(default=dt.datetime.utcnow)
+    modifydate = DateTimeField()
+
+    meta = {
+        'ordering': ['-createdate']
+    }

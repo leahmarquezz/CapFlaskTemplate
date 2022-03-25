@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+
+{% block body %}
+
+{% if homeDef %}
+
+    {{moment(homeDef.createdate).calendar()}} by {{homeDef.author.username}} 
+    {% if homeDef.modifydate %}
+        modified {{moment(homeDef.modifydate).calendar()}}
+    {% endif %}
+    <br>
+    {% if homeDef.author == current_user %}
+        <a data-toggle="tooltip" data-placement="top" title="delete homeDef" href="/homeDef/delete/{{homeDef.id}}">
+            <img width="40" class="bottom-image" src="/static/delete.png">
+        </a>
+        <a data-toggle="tooltip" data-placement="top" title="edit homeDef" href="/homeDef/edit/{{homeDef.id}}">
+            <img width="40" class="bottom-image" src="/static/edit.png">
+        </a>
+    {% endif %}
+
+    <div class="row">
+        <h1 class="display-5">{{homeDef.subject}}</h1>
+        <h3 class="fs-3 fw-light">
+            <img width="120" class="img-thumbnail float-start me-2" src="data:homeimg;base64,{{base64encode(homeDef.homeimg.read())}}">
+            
+        </h3>
+        <p>{{homeDef.definition}}</p>
+    </div>
+{% else %}
+    <h1 class="display-5">no homeDef</h1>
+{% endif %}
+
+{% endblock %}

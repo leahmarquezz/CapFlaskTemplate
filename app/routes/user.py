@@ -2,7 +2,7 @@ from app import app
 from flask_login.utils import login_required
 from app import app
 from flask import render_template, redirect, flash, url_for
-from app.classes.data import User
+from app.classes.data import User, HomeDef
 from app.classes.forms import ProfileForm
 from flask_login import current_user
 
@@ -14,8 +14,12 @@ from flask_login import current_user
 @login_required
 # This is the function that is run when the route is triggered
 def myProfile():
+    try:
+        homeDef = HomeDef.objects.get(author=current_user.id)
+    except:
+        homeDef = None
     # This sends the user to their profile page which renders the 'profilemy.html' template
-    return render_template('profilemy.html')
+    return render_template('profilemy.html', homeDef=homeDef)
 
 # This is the route for editing a profile
 # the methods part is required if you are using a form 

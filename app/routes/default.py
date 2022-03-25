@@ -15,9 +15,9 @@ def aboutus():
 def challenge():
     return render_template('challenge.html')
     
-@app.route('/home')
-def home():
-    return render_template('home.html')
+@app.route('/homeDefs')
+def homeDefs():
+    return render_template('homeDefs.html')
 
 @app.route('/posts')
 def posts():
