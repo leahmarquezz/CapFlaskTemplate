@@ -8,7 +8,7 @@ from flask_login import login_required
 import datetime as dt
 
 @app.route('/homeDef/list')
-@login_required
+#@login_required
 def homeDefList():
     homeDefs = HomeDef.objects()
     return render_template('homeDefs.html',homeDefs=homeDefs)
