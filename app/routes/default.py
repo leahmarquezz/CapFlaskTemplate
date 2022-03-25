@@ -22,15 +22,3 @@ def homeDefs():
 @app.route('/posts')
 def posts():
     return render_template('posts.html')
-
-@app.route('/userhome')
-def userhome():
-    return render_template('userhome.html')
-
-@app.route('/form_homeDef')
-def form_homeDef():
-    return render_template('form_homeDef.html')
-
-@app.route('/home_collection')
-def home_collection():
-    return render_template('home_collection.html')
