@@ -74,5 +74,5 @@ class CommentForm(FlaskForm):
 class HomeDefForm(FlaskForm):
     subject = StringField('subject', validators=[DataRequired()])
     definition = TextAreaField('definition', validators=[DataRequired()])
-    homeimg = FileField('image', validators=[DataRequired()])
+    homeimg = FileField('image')
     submit = SubmitField('submit')

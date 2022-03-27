@@ -8,7 +8,6 @@ from flask_login import login_required
 import datetime as dt
 
 @app.route('/homeDef/list')
-#@login_required
 def homeDefList():
     homeDefs = HomeDef.objects()
     return render_template('homeDefs.html',homeDefs=homeDefs)
@@ -34,6 +33,32 @@ def homeDefNew():
         newHomeDef.save()
         return redirect(url_for('homeDef',homeDefID=newHomeDef.id))
     return render_template('homeDefform.html',form=form)
+
+@app.route('/homeDef/edit/<homeDefID>', methods=['GET', 'POST'])
+@login_required
+def homeDefEdit(homeDefID):
+    editHomeDef = HomeDef.objects.get(id=homeDefID)
+    if current_user != editHomeDef.author:
+        flash("you can't edit a post you don't own.")
+        return redirect(url_for('homeDef',homeDefID=homeDefID))
+    form = HomeDefForm()
+    if form.validate_on_submit():
+        editHomeDef.update(
+            subject = form.subject.data,
+            definition = form.definition.data,
+            author = current_user.id,
+            modifydate = dt.datetime.utcnow
+        )
+        if form.homeimg.data:
+            if editHomeDef.homeimg:
+                editHomeDef.homeimg.delete()
+            editHomeDef.homeimg.put(form.homeimg.data, content_type = 'image/jpeg')
+            editHomeDef.save()
+        return redirect(url_for('homeDef',homeDefID=homeDefID))
+    form.subject.data = editHomeDef.subject
+    form.definition.data = editHomeDef.definition
+    form.homeimg.data = editHomeDef.homeimg
+    return render_template('homeDefform.html',form=form, homeDef=editHomeDef)
 
 @app.route('/homeDef/delete/<homeDefID>')
 @login_required
