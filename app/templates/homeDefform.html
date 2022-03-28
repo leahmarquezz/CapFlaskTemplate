@@ -21,11 +21,15 @@
     </p>
     <p>
         {{ form.homeimg.label }}<br>
-        {% if current_user.homeimg %}
-            <img class="img-thumbnail" width="100" src="data:homeimg;base64,{{base64encode(current_user.homeimg.read())}}"> <br>
+        {% if homeDef%}
+            {% if homeDef.homeimg %}
+                <img class="img-thumbnail mb-1" width="100" src="data:homeimg;base64,{{base64encode(homeDef.homeimg.read())}}"> <br>
+            {% else %}
+                <img class="img-thumbnail mb-1" width = "100" src="/static/bdog.jpg">
+            {% endif %} <br>
         {% else %}
-            <img class="img-thumbnail" width = "100" src="/static/bdog.jpg">
-        {% endif %} <br>
+            <img class="img-thumbnail mb-1" width = "100" src="/static/bdog.jpg"> <br>
+        {% endif %}
         {{ form.homeimg() }}<br>
         {% for error in form.homeimg.errors %}
             <span style="color: red;">[{{ error }}]</span>
