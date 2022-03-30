@@ -9,24 +9,25 @@
         {% if homeDefs %}
             {% for homeDef in homeDefs %}
                 <div class="col-4">
-                    <div class="row">
-                         <!-- Button trigger modal -->
-                         <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#exampleModal" data-definition="{{homeDef.definition}}" data-subject="{{homeDef.subject}}">
-                            <h3 class="fw-light mb-3">
-                                {% if homeDef.homeimg %}
-                                    <img alt="work" class="img-thumbnail img-fluid mx-auto d-block" width="300" src="data:homeimg;base64,{{base64encode(homeDef.homeimg.read())}}">
-                                {% else %}
-                                    <img alt="no work" class="img-thumbnail mx-auto d-block" width="200" src="/static/bdog.jpg">
-                                {% endif %}
-                            </h3>
-                        </button>
-                    </div>
-                    <div class="row">
-                        <h3 class="fw-light" style="text-align:center">"{{homeDef.subject}}"</h3>
-                    </div>
-                    <div class="row">
-                        <h3 class="fw-light" style="text-align:center">by {{homeDef.author.username}}</h3>
-                    </div>
+                    <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#exampleModal" data-definition="{{homeDef.definition}}" data-subject="{{homeDef.subject}}">
+                        <div class="container">
+                            <div class="row">
+                                    <h3 class="fw-light mb-3">
+                                        {% if homeDef.homeimg %}
+                                            <img alt="work" class="img-thumbnail img-fluid mx-auto d-block" width="300" src="data:homeimg;base64,{{base64encode(homeDef.homeimg.read())}}">
+                                        {% else %}
+                                            <img alt="no work" class="img-thumbnail mx-auto d-block" width="200" src="/static/bdog.jpg">
+                                        {% endif %}
+                                    </h3>
+                            </div>
+                            <div class="row">
+                                <h3 class="fw-light" style="text-align:center">"{{homeDef.subject}}"</h3>
+                            </div>
+                            <div class="row">
+                                <h3 class="fw-light" style="text-align:center">by {{homeDef.author.username}}</h3>
+                            </div>
+                        </div>
+                    </button>
                 </div>
             {% endfor %}
         {% else %}
@@ -45,8 +46,6 @@
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
-      </div>
-      <div class="modal-footer">
       </div>
     </div>
   </div>
