@@ -2,16 +2,109 @@
 
 {% block body %}
 
-<div class="container m-4">
-    <div class="row">
-        <h1 class="display-3 mb-4" style="text-align:center">a sense of place and belonging</h1>
+<div class="container m-4 border">
+    <div class="row mb-4 pb-4 border">
+        <h1 class="display-3" style="text-align:center">a sense of place and belonging</h1>
     </div>
-    <div class="row">
+    <div class="row mb-4 pb-4 border">
         <div class="col"></div>
         <div class="col-auto">
             <img src="static/butterfly.jpg" height="400">
         </div>
         <div class="col"></div>
+    </div>
+    <div class="row mb-4 pb-4 border">
+        <h2 class="fw-light">
+            description of home and explanation that home can be more than physical house, 
+            city, etc...
+        </h2>
+    </div>
+    <div id="carouselExampleDark" class="carousel carousel-dark slide mb-4 pb-4 border" data-bs-ride="carousel">
+        <div class="carousel-indicators">
+          <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+          <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="1" aria-label="Slide 2"></button>
+          <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="2" aria-label="Slide 3"></button>
+        </div>
+        <div class="carousel-inner">
+          <div class="carousel-item active" data-bs-interval="10000">
+            <img src="static/leahchicken.JPG" class="d-block mx-auto w-auto" alt="first" style="height: 500px">
+          </div>
+          <div class="carousel-item" data-bs-interval="2000">
+            <img src="static/julia.jpg" class="d-block mx-auto w-auto" alt="second" style="height: 500px">
+          </div>
+          <div class="carousel-item" data-bs-interval="2000">
+            <img src="static/gabe.jpeg" class="d-block mx-auto w-auto" alt="third" style="height: 500px">
+          </div>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleDark" data-bs-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleDark" data-bs-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Next</span>
+        </button>
+    </div>
+    <div class="row m-4 px-1" style="height: 400px">
+        <!--- left col --->
+        <div class="card p-4" style="width: 25%; height: 100%">
+            <div class="row mx-3" style="height: auto">
+                <img src="" alt="rel img">
+            </div>
+            <div class="card-body" style="height: auto">
+                <h4 class="card-title fw-light">home collection</h4>
+                <p class="card-text fw-light">description text</p>
+                <a href="/homeDefs" class="btn btn-secondary">button 1</a>
+            </div>
+        </div>
+        <!--- mid col --->
+        <div class="card" style="width: 25%; height: 100%; margin-left: 1%">
+            <div class="row mt-2 mx-2" style="height: 50%">
+                <img src="" alt="rel img" style="height: 100%;">
+            </div>
+            <div class="card-body" style="height: auto">
+                <h4 class="card-title fw-light">challenge</h4>
+                <p class="card-text fw-light">description text</p>
+                <a href="/challenge" class="btn btn-secondary">button 2</a>
+            </div>
+        </div>
+        <!--- right col --->
+        <div class="col" style="width: 48%; height: 100%; margin-left: 1%">
+            <div class="row" style="height: 48%; margin-bottom: 2%">
+                <div class="card p-3">
+                    <div class="row no-gutters">
+                        <div class="col-4">
+                            <br>
+                            <img src="" class="img-fluid" alt="rel img">
+                        </div>
+                        <div class="col-8">
+                            <div class="card-block px-2">
+                                <h4 class="card-title fw-light">about us</h4>
+                                <p class="card-text fw-light">description text</p>
+                                <a href="/aboutus" class="btn btn-secondary">button 3</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row" style="height: 49%">
+                <div class="card p-4" style="width: 100%">
+                    <div class="row no-gutters">
+                        <div class="col-4">
+                            <br>
+                            <img src="" class="img-fluid" alt="rel img" style="width: 100%">
+                        </div>
+                        <div class="col-8">
+                            <div class="card-block px-2">
+                                <h4 class="card-title fw-light">resource / placeholder</h4>
+                                <p class="card-text fw-light">description text</p>
+                                <a href="https://www.psychologytoday.com/us/blog/out-the-ooze/201508/home-is-where-the-heart-is-where-is-home" class="btn btn-secondary">button 4</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 </div>
 

@@ -1,3 +1,11 @@
 .bottom-image img{
     vertical-align:bottom;
-    }
+}
+
+#carouselHero .carousel-item img{
+    object-fit: cover;
+    object-position: center;
+    height: 60vh;
+    width: 60vw;
+    overflow: hidden;
+}
