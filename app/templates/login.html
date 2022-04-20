@@ -16,12 +16,10 @@
 
         <form method=post>
             {{ form.hidden_tag() }}
-            <table class="table">
-                <tr><th><h3 class="fw-light">username</h3></th><th>{{form.username}}</th></tr>
-                <tr><th><h3 class="fw-light">password</h3></th><th>{{form.password}}</th></tr>
-                <tr><th><h5 class="fw-light">remember me?</h5></th><th>{{form.remember_me}}</th></tr>
-                <tr><td colspan="2">{{form.submit()}}</td></tr>
-            </table>
+                <h3 class="fw-light">username</h3>{{form.username}}
+                <h3 class="fw-light">password</h3>{{form.password}}
+                <h5 class="fw-light">remember me?</h5>{{form.remember_me}}
+                {{form.submit()}}
         </form>
 
         <h6 class="fw-light">
