@@ -45,7 +45,7 @@
                         <h3 class="fw-light mb-3" style="text-align:center">"{{homeDef.subject}}"</h1>
                         <h3 class="fs-3 fw-light mb-3">
                             {% if homeDef.homeimg %}
-                                <img alt="work" class="img-thumbnail img-fluid mx-auto d-block" width="200" src="data:homeimg;base64,{{base64encode(homeDef.homeimg.read())}}">
+                                <img alt="work" class="img-thumbnail img-fluid mx-auto d-block" style="height:300px;width:300px" src="data:homeimg;base64,{{base64encode(homeDef.homeimg.read())}}">
                             {% else %}
                                 <img alt="no work" class="img-thumbnail mx-auto d-block" width="200" src="/static/bdog.jpg">
                             {% endif %} 
