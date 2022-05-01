@@ -2,7 +2,7 @@
 
 {% block body %}
 <div class="container m-4">
-    <h1 class="display-3 mb-4">login</h1>
+    <h1 class="display-3">login</h1>
     {% for field in form.errors %}
         {% for error in form.errors[field] %}
             <div class="alert alert-error">
@@ -13,13 +13,14 @@
 
     <div class="row">
         <h6 class="fw-light"> new user? <a href="{{ url_for('register') }}">click to register!</a></h6>
-
         <form method=post>
             {{ form.hidden_tag() }}
-                <h3 class="fw-light">username</h3>{{form.username}}
-                <h3 class="fw-light">password</h3>{{form.password}}
-                <h5 class="fw-light">remember me?</h5>{{form.remember_me}}
+            <h3 class="fw-light mt-2">{{form.username.label}}</h3>{{form.username(size=40)}}
+            <h3 class="fw-light my-2">{{form.password.label}}</h3>{{form.password(size=40)}}
+            <h5 class="fw-light mt-4">remember me? {{form.remember_me}}</h5>
+            <h4 class="fw-light">
                 {{form.submit()}}
+            </h4>
         </form>
 
         <h6 class="fw-light">

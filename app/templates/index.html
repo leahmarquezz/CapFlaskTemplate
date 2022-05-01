@@ -3,28 +3,29 @@
 {% block body %}
 
 <div class="container m-4">
-    <div class="row mb-4">
+    <div class="row mb-4  pb-3 mx-4 border-bottom">
         <h1 class="display-3" style="text-align:center">a sense of place and belonging</h1>
     </div>
-    <div class="row mb-4 pb-4">
+    <div class="row pt-3 mb-4 pb-4">
         <div class="col"></div>
         <div class="col-auto">
-            <img src="static/butterfly.jpg" height="400">
+            <img src="static/butterfly.jpg" height="500">
         </div>
         <div class="col"></div>
     </div>
     <div class="row mb-4 pb-4">
-        <h5 class="fw-lighter" style="text-align: center;">
+        <h4 class="fw-lighter px-4" style="text-align: center; line-height: 40px;">
+            <br>
             home does not fit the dictionary defintion that home is "a place one lives in permanently". 
             what if you live in two different places or you constantly move around? what is your home then?
             we understand that one cannot force a feeling of belonging to create a sense of place; therefore, 
             we are trying to create a community that encourages vunerablity in hopes to welcome belonging.
+            below you will find different examples of what "home" can be, whether it's your friends, music, 
+            the forest, or even video games.
            <br><br>
-            below are a few examples of what "home" can look like whether it is the ocean,
-            your beanbag chair, your warm bed, or a cool glass of wine it can all be home
-        </h5>
+        </h4>
     </div>
-    <div id="carouselExampleDark" class="carousel carousel-dark slide mb-4 pb-4" data-bs-ride="carousel">
+    <div id="carouselExampleDark" class="carousel carousel-dark slide mb-3 pb-4" data-bs-ride="carousel">
         <div class="carousel-indicators">
           <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
           <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="1" aria-label="Slide 2"></button>
@@ -32,17 +33,17 @@
           <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="3" aria-label="Slide 4"></button>
         </div>
         <div class="carousel-inner">
-          <div class="carousel-item active" data-bs-interval="10000">
-            <img src="static/ocean.jpeg" class="d-block mx-auto w-auto" alt="first" style="height: 500px">
+          <div class="carousel-item active" data-bs-interval="5000">
+            <img src="static/friends.jpg" class="d-block mx-auto w-auto" alt="first" style="height: 500px">
           </div>
           <div class="carousel-item" data-bs-interval="2000">
-            <img src="static/beanbag.jpeg" class="d-block mx-auto w-auto" alt="second" style="height: 500px">
+            <img src="static/music.jpg" class="d-block mx-auto w-auto" alt="second" style="height: 500px">
           </div>
           <div class="carousel-item" data-bs-interval="2000">
-            <img src="static/bed.jpeg" class="d-block mx-auto w-auto" alt="third" style="height: 500px">
+            <img src="static/forest.jpg" class="d-block mx-auto w-auto" alt="third" style="height: 500px">
           </div>
           <div class="carousel-item" data-bs-interval="2000">
-            <img src="static/wine.jpeg" class="d-block mx-auto w-auto" alt="fourth" style="height: 500px">
+            <img src="static/videogame.jpg" class="d-block mx-auto w-auto" alt="fourth" style="height: 500px">
           </div>
         </div>
         <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleDark" data-bs-slide="prev">
@@ -55,66 +56,55 @@
         </button>
     </div>
     <br><br>
-    <div class="row m-4 px-1" style="height: 400px">
+    <div class="row border-top m-4 py-4" style="height: 400px">
+        <div class="row mt-4"><br></div>
         <!--- left col --->
-        <div class="card p-4" style="width: 25%; height: 100%">
-            <div class="row mx-3" style="height: auto">
-                <img src="static/home.jpeg" alt="rel img">
-            </div>
-            <div class="card-body" style="height: auto">
-                <h4 class="card-title fw-light">home collection</h4>
-                <p class="card-text fw-light">here you will find community responses of what home means to them and why</p>
-                <a href="/homeDefs" class="btn btn-secondary">take me there!</a>
-            </div>
+        <div class="col">
+            <a href="/homeDef/list" class="btn">
+                <div class="row mb-2">
+                    <div class="col"></div>
+                    <div class="col-auto">
+                        <img src="static/messages.jpg" alt="" style="height:150px; width:auto">
+                    </div>
+                    <div class="col"></div>
+                </div>
+                <div class="row px-3">
+                    <h3 class="fw-light" style="text-align:center">home collection</h3>
+                    <p class="fw-light" style="text-align:center">here you'll find what others consider to be "home" for them. this is also where your response will live!</p>
+                </div>
+            </a>
         </div>
         <!--- mid col --->
-        <div class="card" style="width: 25%; height: 100%; margin-left: 1%">
-            <div class="row mt-2 mx-2" style="height: 50%">
-                <img src="static/challenge.jpeg" alt="rel img" style="height: 100%;">
-            </div>
-            <div class="card-body" style="height: auto">
-                <h4 class="card-title fw-light">challenge</h4>
-                <p class="card-text fw-light">trying to recreate a new sense of place? check out our challenge!
-                </p>
-                <a href="/challenge" class="btn btn-secondary">click me!</a>
-            </div>
+        <div class="col">
+            <a href="/challenge" class="btn">
+                <div class="row mb-3">
+                    <div class="col"></div>
+                    <div class="col-auto">
+                        <img src="static/checklist.jpg" alt="" style="height:140px; width:auto">
+                    </div>
+                    <div class="col"></div>
+                </div>
+                <div class="row px-3" style="height: auto">
+                    <h3 class="fw-light" style="text-align:center">challenge</h3>
+                    <p class="fw-light" style="text-align:center">trying to recreate a new sense of place or figure out what yours is? check out our challenge!</p>
+                </div>
+            </a>
         </div>
         <!--- right col --->
-        <div class="col" style="width: 48%; height: 100%; margin-left: 1%">
-            <div class="row" style="height: 48%; margin-bottom: 2%">
-                <div class="card p-3">
-                    <div class="row no-gutters">
-                        <div class="col-4">
-                            <br>
-                            <img src="static/aboutus.png" class="img-fluid" alt="rel img">
-                        </div>
-                        <div class="col-8">
-                            <div class="card-block px-2">
-                                <h4 class="card-title fw-light">about us</h4>
-                                <p class="card-text fw-light">learn more about the creators</p>
-                                <a href="/aboutus" class="btn btn-secondary">here</a>
-                            </div>
-                        </div>
+        <div class="col">
+            <a href="/aboutus" class="btn">
+                <div class="row mb-3">
+                    <div class="col"></div>
+                    <div class="col-auto">
+                        <img src="static/person.png" alt="" style="height:140px; width:auto">
                     </div>
+                    <div class="col"></div>
                 </div>
-            </div>
-            <div class="row" style="height: 49%">
-                <div class="card p-4" style="width: 100%">
-                    <div class="row no-gutters">
-                        <div class="col-4">
-                            <br>
-                            <img src="static/article.png" class="img-fluid" alt="rel img" style="width: 100%">
-                        </div>
-                        <div class="col-8">
-                            <div class="card-block px-2">
-                                <h4 class="card-title fw-light">interested in more?</h4>
-                                <p class="card-text fw-light">check out thejas jagannath's article about what a sense of place is</p>
-                                <a href="https://medium.com/interviews-and-articles-on-art-public-spaces/what-is-sense-of-place-cd749f924712" class="btn btn-secondary">click here</a>
-                            </div>
-                        </div>
-                    </div>
+                <div class="row px-3" style="height: auto">
+                    <h3 class="fw-light" style="text-align:center">about us</h3>
+                    <p class="fw-light" style="text-align:center">click here to learn more about the creators and what inspired us to work on this project!</p>
                 </div>
-            </div>
+            </a>
         </div>
     </div>
 </div>

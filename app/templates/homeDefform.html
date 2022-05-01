@@ -19,8 +19,8 @@
             <span style="color: red;">[{{ error }}]</span>
         {% endfor %}
     </p>
-    <p>
-        {{ form.homeimg.label }}<br>
+    <h5 class="fw-light">
+        {{ form.homeimg.label }} - please use square images only!<br>
         {% if homeDef%}
             {% if homeDef.homeimg %}
                 <img class="img-thumbnail mb-1" width="100" src="data:homeimg;base64,{{base64encode(homeDef.homeimg.read())}}"> <br>
@@ -34,7 +34,7 @@
         {% for error in form.homeimg.errors %}
             <span style="color: red;">[{{ error }}]</span>
         {% endfor %}
-    </p>
+    </h5>
     <p>
         {{form.submit()}}
     </p>
