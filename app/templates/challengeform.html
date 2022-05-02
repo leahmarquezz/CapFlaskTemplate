@@ -1,0 +1,134 @@
+<!-- This is a blank template.  You can copy this to make a new template page. -->
+
+{% extends 'base.html' %}
+
+{% block body %}
+<h1>challenge</h1>
+
+<h5>1. buy a journal to either draw or write <br>
+    - finding a blank piece of paper works too <br>
+2. get outdoors & take a walk <br>
+3. look for a comfortable spot to sit <br>
+4. just start writing whatever comes to mind <br>
+    - if you need help you can look at some prompts below <br>
+5. repeat these steps one day a week for as long as you’d like <br>
+</h5>
+<br>
+<form action="" method="post" enctype="multipart/form-data">
+    {{ form.hidden_tag()}}
+    <p>
+        {{ form.challenge1(size=61)}}
+        {{ form.challenge1.label }}
+        {% for error in form.challenge1.errors %}
+            <span style="color: red;">[{ error }}]</span>
+        {% endfor %}
+        <br>
+        {{ form.reflection1.label }}
+        <br>
+        {{ form.reflection1(cols=64)}}
+    </p>
+    <p>
+        {{ form.challenge2(size=61) }}
+        {{ form.challenge2.label }}
+        {% for error in form.challenge2.errors %}
+            <span style="color: red;">[{ error }}]</span>
+        {% endfor %}
+        <br>
+        {{ form.reflection2.label }}
+        <br>
+        {{ form.reflection2(cols=64)}}
+    </p>
+    <p>
+        {{ form.challenge3(size=61) }}
+        {{ form.challenge3.label }}
+        {% for error in form.challenge3.errors %}
+            <span style="color: red;">[{ error }}]</span>
+        {% endfor %}
+        <br>
+        {{ form.reflection3.label }}
+        <br>
+        {{ form.reflection3(cols=64)}}
+    </p>
+    <p>
+        {{ form.challenge4(size=61) }}
+        {{ form.challenge4.label }}
+        {% for error in form.challenge4.errors %}
+            <span style="color: red;">[{ error }}]</span>
+        {% endfor %}
+        <br>
+        {{ form.reflection4.label }}
+        <br>
+        {{ form.reflection4(cols=64)}}
+    </p>
+    <p>
+        {{ form.challenge5(size=61) }}
+        {{ form.challenge5.label }}
+        {% for error in form.challenge5.errors %}
+            <span style="color: red;">[{ error }}]</span>
+        {% endfor %}
+        <br>
+        {{ form.reflection5.label }}
+        <br>
+        {{ form.reflection5(cols=64)}}
+    </p>
+    <p>
+        {{ form.challenge6(size=61) }}
+        {{ form.challenge6.label }}
+        {% for error in form.challenge6.errors %}
+            <span style="color: red;">[{ error }}]</span>
+        {% endfor %}<br>
+        {{ form.reflection6.label }}
+        <br>
+        {{ form.reflection6(cols=64)}}
+
+    </p>
+    <p>
+        {{ form.challenge7(size=61) }}
+        {{ form.challenge7.label }}
+        {% for error in form.challenge7.errors %}
+            <span style="color: red;">[{ error }}]</span>
+        {% endfor %}
+        <br>
+        {{ form.reflection7.label }}
+        <br>
+        {{ form.reflection7(cols=64)}}
+    </p>
+    <p>
+        {{ form.challenge8(size=61) }}
+        {{ form.challenge8.label }}
+        {% for error in form.challenge8.errors %}
+            <span style="color: red;">[{ error }}]</span>
+        {% endfor %}
+        <br>
+        {{ form.reflection8.label }}
+        <br>
+        {{ form.reflection8(cols=64)}}
+    </p>
+    <p>
+        {{ form.challenge9(size=61) }}
+        {{ form.challenge9.label }}
+        {% for error in form.challenge9.errors %}
+            <span style="color: red;">[{ error }}]</span>
+        {% endfor %}
+        <br>
+        {{ form.reflection9.label }}
+        <br>
+        {{ form.reflection9(cols=64)}}
+    </p>
+    <p>
+        {{ form.challenge10(size=61) }}
+        {{ form.challenge10.label }}
+        {% for error in form.challenge10.errors %}
+            <span style="color: red;">[{ error }}]</span>
+        {% endfor %}
+        <br>
+        {{ form.reflection10.label }}
+        <br>
+        {{ form.reflection10(cols=64)}}
+    </p>
+    <p>
+        {{form.submit()}}
+    </p>
+</form>
+<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+{% endblock %}

@@ -1,5 +1,5 @@
-# This file is where data entry forms are created. Forms are placed on templates 
-# and users fill them out.  Each form is an instance of a class. Forms are managed by the 
+# This file is where data entry forms are created. Forms are placed on templates
+# and users fill them out.  Each form is an instance of a class. Forms are managed by the
 # Flask-WTForms library.
 
 from flask.app import Flask
@@ -11,19 +11,22 @@ from wtforms.validators import URL, NumberRange, Email, Optional, InputRequired,
 from wtforms import PasswordField, StringField, SubmitField, TextAreaField, HiddenField, IntegerField, SelectField, FileField, BooleanField
 from app.classes.data import User
 
+
 class LoginForm(FlaskForm):
     username = StringField('username', validators=[DataRequired()])
     password = PasswordField('password', validators=[DataRequired()])
     remember_me = BooleanField('remember me')
     submit = SubmitField('submit')
 
+
 class RegistrationForm(FlaskForm):
     username = StringField('username', validators=[DataRequired()])
-    email = StringField('email', validators=[DataRequired(), Email()])  
+    email = StringField('email', validators=[DataRequired(), Email()])
     fname = StringField('first name', validators=[DataRequired()])
     lname = StringField('last name', validators=[DataRequired()])
     password = PasswordField('password', validators=[DataRequired()])
-    password2 = PasswordField('repeat password', validators=[DataRequired(), EqualTo('password')])
+    password2 = PasswordField('repeat password', validators=[
+                              DataRequired(), EqualTo('password')])
     submit = SubmitField('register')
 
     def validate_username(self, username):
@@ -40,11 +43,14 @@ class RegistrationForm(FlaskForm):
         except mongoengine.errors.DoesNotExist:
             flash(f'{email.data} is a unique email address.')
         else:
-            raise ValidationError('this email address is already in use. if you have forgotten your credentials, you can try to recover your account.')
+            raise ValidationError(
+                'this email address is already in use. if you have forgotten your credentials, you can try to recover your account.')
+
 
 class ResetPasswordRequestForm(FlaskForm):
     email = StringField('email', validators=[DataRequired(), Email()])
     submit = SubmitField('request password reset')
+
 
 class ResetPasswordForm(FlaskForm):
     password = PasswordField('password', validators=[DataRequired()])
@@ -52,27 +58,59 @@ class ResetPasswordForm(FlaskForm):
         'repeat password', validators=[DataRequired(), EqualTo('password')])
     submit = SubmitField('request password reset')
 
+
 class ProfileForm(FlaskForm):
     fname = StringField('first name', validators=[DataRequired()])
-    lname = StringField('last name', validators=[DataRequired()]) 
-    image = FileField("image") 
-    submit = SubmitField('post')
-    role = SelectField('role',choices=[("none","none"),("admin","admin"),("user","user")])
-    agerange = SelectField('age', choices=[("not specified","not specified"),
-    ("<12","<12"),("12-17","12-17"),("18-24","18-24"),("25-34","25-34"),("35-44","35-44"),("45-54","45-54"),("55-64","55-64"),("65-74","65-74"),("75+","75+")])
+    lname = StringField('last name', validators=[DataRequired()])
+    image = FileField("image")
+    submit = SubmitField('submit')
+    role = SelectField(
+        'role', choices=[("none", "none"), ("admin", "admin"), ("user", "user")])
+    agerange = SelectField('age', choices=[("not specified", "not specified"),
+                                           ("<12", "<12"), ("12-17", "12-17"), ("18-24", "18-24"), ("25-34", "25-34"), ("35-44", "35-44"), ("45-54", "45-54"), ("55-64", "55-64"), ("65-74", "65-74"), ("75+", "75+")])
+
 
 class PostForm(FlaskForm):
     subject = StringField('subject', validators=[DataRequired()])
-    posttype = SelectField('post type', validators=[DataRequired()], choices=[("asking a question","asking a question"),("sharing","sharing")])
+    posttype = SelectField('post type', validators=[DataRequired()], choices=[
+                           ("asking a question", "asking a question"), ("sharing", "sharing")])
     content = TextAreaField('post', validators=[DataRequired()])
     submit = SubmitField('post')
+
 
 class CommentForm(FlaskForm):
     content = TextAreaField('comment', validators=[DataRequired()])
     submit = SubmitField('post')
+
 
 class HomeDefForm(FlaskForm):
     subject = StringField('subject', validators=[DataRequired()])
     definition = TextAreaField('definition', validators=[DataRequired()])
     homeimg = FileField('image')
     submit = SubmitField('submit')
+
+
+class ChallengeForm(FlaskForm):
+    challenge1 = BooleanField('whatever challenge 1 is')
+    challenge2 = BooleanField('whatever challenge 2 is')
+    challenge3 = BooleanField('whatever challenge 3 is')
+    challenge4 = BooleanField('whatever challenge 4 is')
+    challenge5 = BooleanField('whatever challenge 5 is')
+    challenge6 = BooleanField('whatever challenge 6 is')
+    challenge7 = BooleanField('whatever challenge 7 is')
+    challenge8 = BooleanField('whatever challenge 8 is')
+    challenge9 = BooleanField('whatever challenge 9 is')
+    challenge10 = BooleanField('whatever challenge 10 is')
+    reflection1 = TextAreaField('main ideas from prompt')
+    reflection2 = TextAreaField('main ideas from prompt')
+    reflection3 = TextAreaField('main ideas from prompt')
+    reflection4 = TextAreaField('main ideas from prompt')
+    reflection5 = TextAreaField('main ideas from prompt')
+    reflection6 = TextAreaField('main ideas from prompt')
+    reflection7 = TextAreaField('main ideas from prompt')
+    reflection8 = TextAreaField('main ideas from prompt')
+    reflection9 = TextAreaField('main ideas from prompt')
+    reflection10 = TextAreaField('main ideas from prompt')
+    submit = SubmitField('submit')
+
+

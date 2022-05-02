@@ -1,3 +1,4 @@
+from flask_login import login_required
 from app import app
 from flask import render_template
 
@@ -11,10 +12,3 @@ def index():
 def aboutus():
     return render_template('aboutus.html')
 
-@app.route('/challenge')
-def challenge():
-    return render_template('challenge.html')
-
-@app.route('/posts')
-def posts():
-    return render_template('posts.html')

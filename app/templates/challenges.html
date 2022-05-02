@@ -1,0 +1,12 @@
+<!-- This is a blank template.  You can copy this to make a new template page. -->
+
+{% extends 'base.html' %}
+
+{% block body %}
+    {% if challenges %}
+        {% for challenge in challenges %}
+            {{challenge.author.fname}} | {{challenge.challenge1}} | {{challenge.challenge2}} | {{challenge.challenge3}}
+        {% endfor %}
+    {% endif %}
+
+{% endblock %}

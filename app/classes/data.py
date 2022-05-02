@@ -4,15 +4,17 @@
 # fields have types like IntField, StringField etc.  This uses the Mongoengine Python Library. When 
 # you interact with the data you are creating an onject that is an instance of the class.
 
+from pandas import BooleanDtype
 from app import app
 from flask import flash
 from flask_login import UserMixin
-from mongoengine import FileField, EmailField, StringField, ReferenceField, DateTimeField, CASCADE
+from mongoengine import FileField, EmailField, StringField, ReferenceField, DateTimeField, CASCADE, BooleanField
 from flask_mongoengine import Document
 from werkzeug.security import generate_password_hash, check_password_hash
 import datetime as dt
 import jwt
 from time import time
+
 #from bson.objectid import ObjectId
 
 class User(UserMixin, Document):
@@ -81,3 +83,27 @@ class HomeDef(Document):
     meta = {
         'ordering': ['-createdate']
     }
+
+class Challenge(Document):
+    author = ReferenceField('User',reverse_delete_rule=CASCADE)
+    challenge1 = BooleanField('whatever challenge 1 is')
+    challenge2 = BooleanField('whatever challenge 2 is')
+    challenge3 = BooleanField('whatever challenge 3 is')
+    challenge4 = BooleanField('whatever challenge 4 is')
+    challenge5 = BooleanField('whatever challenge 5 is')
+    challenge6 = BooleanField('whatever challenge 6 is')
+    challenge7 = BooleanField('whatever challenge 7 is')
+    challenge8 = BooleanField('whatever challenge 8 is')
+    challenge9 = BooleanField('whatever challenge 9 is')
+    challenge10 = BooleanField('whatever challenge 10 is')
+    reflection1 = StringField()
+    reflection2 = StringField()
+    reflection3 = StringField()
+    reflection4 = StringField()
+    reflection5 = StringField()
+    reflection6 = StringField()
+    reflection7 = StringField()
+    reflection8 = StringField()
+    reflection9 = StringField()
+    reflection10 = StringField()
+
