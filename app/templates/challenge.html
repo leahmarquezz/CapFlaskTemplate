@@ -14,117 +14,140 @@
     {% else %}
         <a href='/challenge/new' class="btn btn-light btn-sm mt-4 border" role="button"><h3 class="fw-light">start a new</h3></a>
     {% endif %} -->
-<h5>1. buy a journal to either draw or write <br>
+<h4>1. buy a journal to either draw or write <br>
             - finding a blank piece of paper works too <br>
     2. get outdoors & take a walk <br>
     3. look for a comfortable spot to sit <br>
     4. just start writing whatever comes to mind <br>
             - if you need help you can look at some prompts below <br>
     5. repeat these steps one day a week for as long as you’d like <br>
-    </h5>
+    </h4>
     <br>
     {% if challenge %}
         {% if challenge.author == current_user %}
-                <div class="row mb-3" style="height: 14;" >
-                    <div class="col" style="width: 14;">
-                        {% if challenge.challenge1 == True %}
-                            <img src="/static/checky.png" alt="bruh" height="15">
-                        {% else %}
-                            <img src="/static/unchecky.png" alt="notbruh" height="19">
-                        {% endif %}
-                        whatever challenge 1 is
-                    </div>
-                </div>  
-                <div class="row mb-3" style="height: 14;">
-                    <div class="col" style="width: 14;">
-                        {% if challenge.challenge2 == True %}
-                            <img src="/static/checky.png" alt="bruh" height="15">
-                        {% else %}
-                            <img src="/static/unchecky.png" alt="notbruh" height="19">
-                        {% endif %}
-                        whatever challenge 2 is
-                    </div>
-                </div>  
-                <div class="row mb-3" style="height: 14;">
-                    <div class="col" style="width: 14;">
-                        {% if challenge.challenge3 == True %}
-                            <img src="/static/checky.png" alt="bruh" height="15">
-                        {% else %}
-                            <img src="/static/unchecky.png" alt="notbruh" height="19">
-                        {% endif %}
-                        whatever challenge 3 is
-                    </div>
+            <h5>writing prompts</h5>
+            <div class="row mb-3" style="height: 14;" >
+                <div class="col" style="width: 14;">
+                    {% if challenge.write1 == True %}
+                        <img src="/static/checky.png" alt="bruh" height="15">
+                    {% else %}
+                        <img src="/static/unchecky.png" alt="notbruh" height="19">
+                    {% endif %}
+                    what is something you've been struggling with recently?
+                    <br>
+                    {{challenge.reflection1}}
                 </div>
-                <div class="row mb-3" style="height: 14;">
-                    <div class="col" style="width: 14;">
-                        {% if challenge.challenge4 == True %}
-                            <img src="/static/checky.png" alt="bruh" height="15">
-                        {% else %}
-                            <img src="/static/unchecky.png" alt="notbruh" height="19">
-                        {% endif %}
-                        whatever challenge 4 is
-                    </div>
+            </div>  
+            <div class="row mb-3" style="height: 14;">
+                <div class="col" style="width: 14;">
+                    {% if challenge.write2 == True %}
+                        <img src="/static/checky.png" alt="bruh" height="15">
+                    {% else %}
+                        <img src="/static/unchecky.png" alt="notbruh" height="19">
+                    {% endif %}
+                    write about your biggest fear + be honest with yourself.
+                    <br>
+                    {{challenge.reflection2}}
                 </div>
-                <div class="row mb-3" style="height: 14;">
-                    <div class="col" style="width: 14;">
-                        {% if challenge.challenge5 == True %}
-                            <img src="/static/checky.png" alt="bruh" height="15">
-                        {% else %}
-                            <img src="/static/unchecky.png" alt="notbruh" height="19">
-                        {% endif %}
-                        whatever challenge 5 is
-                    </div>
+            </div>  
+            <div class="row mb-3" style="height: 14;">
+                <div class="col" style="width: 14;">
+                    {% if challenge.write3 == True %}
+                        <img src="/static/checky.png" alt="bruh" height="15">
+                    {% else %}
+                        <img src="/static/unchecky.png" alt="notbruh" height="19">
+                    {% endif %}
+                    what is your first memory of life?
+                    <br>
+                    {{challenge.reflection3}}
                 </div>
-                <div class="row mb-3" style="height: 14;">
-                    <div class="col" style="width: 14;">
-                        {% if challenge.challenge6 == True %}
-                            <img src="/static/checky.png" alt="bruh" height="15">
-                        {% else %}
-                            <img src="/static/unchecky.png" alt="notbruh" height="19">
-                        {% endif %}
-                        whatever challenge 6 is
-                    </div>
+            </div>
+            <div class="row mb-3" style="height: 14;">
+                <div class="col" style="width: 14;">
+                    {% if challenge.write4 == True %}
+                        <img src="/static/checky.png" alt="bruh" height="15">
+                    {% else %}
+                        <img src="/static/unchecky.png" alt="notbruh" height="19">
+                    {% endif %}
+                    what is biggest obstacle you’ve had to overcome?
+                    <br>
+                    {{challenge.reflection4}}
                 </div>
-                <div class="row mb-3" style="height: 14;">
-                    <div class="col" style="width: 14;">
-                        {% if challenge.challenge7 == True %}
-                            <img src="/static/checky.png" alt="bruh" height="15">
-                        {% else %}
-                            <img src="/static/unchecky.png" alt="notbruh" height="19">
-                        {% endif %}
-                        whatever challenge 7 is
-                    </div>
-                </div>  
-                <div class="row mb-3" style="height: 14;">
-                    <div class="col" style="width: 14;">
-                        {% if challenge.challenge8 == True %}
-                            <img src="/static/checky.png" alt="bruh" height="15">
-                        {% else %}
-                            <img src="/static/unchecky.png" alt="notbruh" height="19">
-                        {% endif %}
-                        whatever challenge 8 is
-                    </div>
-                </div>  
-                <div class="row mb-3" style="height: 14;">
-                    <div class="col" style="width: 14;">
-                        {% if challenge.challenge9 == True %}
-                            <img src="/static/checky.png" alt="bruh" height="15">
-                        {% else %}
-                            <img src="/static/unchecky.png" alt="notbruh" height="19">
-                        {% endif %}
-                        whatever challenge 9 is
-                    </div>
-                </div>  
-                <div class="row mb-3" style="height: 14;">
-                    <div class="col" style="width: 14;">
-                        {% if challenge.challenge10 == True %}
-                            <img src="/static/checky.png" alt="bruh" height="15">
-                        {% else %}
-                            <img src="/static/unchecky.png" alt="notbruh" height="19">
-                        {% endif %}
-                        whatever challenge 10 is
-                    </div>
-                </div>  
+            </div>
+            <div class="row mb-3" style="height: 14;">
+                <div class="col" style="width: 14;">
+                    {% if challenge.write5 == True %}
+                        <img src="/static/checky.png" alt="bruh" height="15">
+                    {% else %}
+                        <img src="/static/unchecky.png" alt="notbruh" height="19">
+                    {% endif %}
+                    write about a secret no one knows about you.
+                    <br>
+                    {{challenge.reflection5}}
+                </div>
+            </div>
+            <div class="row mb-3" style="height: 14;">
+                <div class="col" style="width: 14;">
+                    {% if challenge.write6 == True %}
+                        <img src="/static/checky.png" alt="bruh" height="15">
+                    {% else %}
+                        <img src="/static/unchecky.png" alt="notbruh" height="19">
+                    {% endif %}
+                    what does home mean to you?
+                    <br>
+                    {{challenge.reflection6}}
+                </div>
+            </div>
+            <br>
+            <h5>art prompts</h5>
+            <div class="row mb-3" style="height: 14;">
+                <div class="col" style="width: 14;">
+                    {% if challenge.art1 == True %}
+                        <img src="/static/checky.png" alt="bruh" height="15">
+                    {% else %}
+                        <img src="/static/unchecky.png" alt="notbruh" height="19">
+                    {% endif %}
+                    create what you fear.
+                    <br>
+                    {{challenge.reflection7}}
+                </div>
+            </div>  
+            <div class="row mb-3" style="height: 14;">
+                <div class="col" style="width: 14;">
+                    {% if challenge.art2 == True %}
+                        <img src="/static/checky.png" alt="bruh" height="15">
+                    {% else %}
+                        <img src="/static/unchecky.png" alt="notbruh" height="19">
+                    {% endif %}
+                    illustrate and ongoing struggle in your life.
+                    <br>
+                    {{challenge.reflection8}}
+                </div>
+            </div>  
+            <div class="row mb-3" style="height: 14;">
+                <div class="col" style="width: 14;">
+                    {% if challenge.art3 == True %}
+                        <img src="/static/checky.png" alt="bruh" height="15">
+                    {% else %}
+                        <img src="/static/unchecky.png" alt="notbruh" height="19">
+                    {% endif %}
+                    create a piece of home.
+                    <br>
+                    {{challenge.reflection9}}
+                </div>
+            </div>  
+            <div class="row mb-3" style="height: 14;">
+                <div class="col" style="width: 14;">
+                    {% if challenge.art4 == True %}
+                        <img src="/static/checky.png" alt="bruh" height="15">
+                    {% else %}
+                        <img src="/static/unchecky.png" alt="notbruh" height="19">
+                    {% endif %}
+                    what does home look like to you?
+                    <br>
+                    {{challenge.reflection10}}
+                </div>
+            </div>  
         {% endif %}
             <a href="/challenge/edit/{{challenge.id}}">
             <img width="30" src="/static/edit.png">
