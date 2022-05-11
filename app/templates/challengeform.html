@@ -3,11 +3,12 @@
 {% extends 'base.html' %}
 
 {% block body %}
-<h1>challenge</h1>
-
+<h1 class="display-3" style="text-align:center">challenge</h1>
+<br>
+<h2>instructions:</h2>
 <h5>1. buy a journal to either draw or write <br>
     - finding a blank piece of paper works too <br>
-2. get outdoors & take a walk <br>
+2. get outdoors & take a walk (wherever you can)<br>
 3. look for a comfortable spot to sit <br>
 4. just start writing whatever comes to mind <br>
     - if you need help you can look at some prompts below <br>
@@ -15,8 +16,11 @@
 </h5>
 <br>
 <form action="" method="post" enctype="multipart/form-data">
-    {{ form.hidden_tag()}}
-    <p>
+<div class="row">
+{{ form.hidden_tag()}}
+    <div class="col">
+        <h4>writing prompts</h4>
+        <p>
         {{ form.write1(size=61)}}
         {{ form.write1.label }}
         {% for error in form.write1.errors %}
@@ -26,8 +30,8 @@
         {{ form.reflection1.label }}
         <br>
         {{ form.reflection1(cols=64)}}
-    </p>
-    <p>
+        </p>
+        <p>
         {{ form.write2(size=61) }}
         {{ form.write2.label }}
         {% for error in form.write2.errors %}
@@ -37,8 +41,8 @@
         {{ form.reflection2.label }}
         <br>
         {{ form.reflection2(cols=64)}}
-    </p>
-    <p>
+        </p>
+        <p>
         {{ form.write3(size=61) }}
         {{ form.write3.label }}
         {% for error in form.write3.errors %}
@@ -48,8 +52,8 @@
         {{ form.reflection3.label }}
         <br>
         {{ form.reflection3(cols=64)}}
-    </p>
-    <p>
+        </p>
+        <p>
         {{ form.write4(size=61) }}
         {{ form.write4.label }}
         {% for error in form.write4.errors %}
@@ -59,8 +63,8 @@
         {{ form.reflection4.label }}
         <br>
         {{ form.reflection4(cols=64)}}
-    </p>
-    <p>
+        </p>
+        <p>
         {{ form.write5(size=61) }}
         {{ form.write5.label }}
         {% for error in form.write5.errors %}
@@ -70,8 +74,8 @@
         {{ form.reflection5.label }}
         <br>
         {{ form.reflection5(cols=64)}}
-    </p>
-    <p>
+        </p>
+        <p>
         {{ form.write6(size=61) }}
         {{ form.write6.label }}
         {% for error in form.write6.errors %}
@@ -80,55 +84,59 @@
         {{ form.reflection6.label }}
         <br>
         {{ form.reflection6(cols=64)}}
-
-    </p>
-    <p>
-        {{ form.art1(size=61) }}
-        {{ form.art1.label }}
-        {% for error in form.art1.errors %}
-            <span style="color: red;">[{ error }}]</span>
-        {% endfor %}
-        <br>
-        {{ form.reflection7.label }}
-        <br>
-        {{ form.reflection7(cols=64)}}
-    </p>
-    <p>
-        {{ form.art2(size=61) }}
-        {{ form.art2.label }}
-        {% for error in form.art2.errors %}
-            <span style="color: red;">[{ error }}]</span>
-        {% endfor %}
-        <br>
-        {{ form.reflection8.label }}
-        <br>
-        {{ form.reflection8(cols=64)}}
-    </p>
-    <p>
-        {{ form.art3(size=61) }}
-        {{ form.art3.label }}
-        {% for error in form.art3.errors %}
-            <span style="color: red;">[{ error }}]</span>
-        {% endfor %}
-        <br>
-        {{ form.reflection9.label }}
-        <br>
-        {{ form.reflection9(cols=64)}}
-    </p>
-    <p>
-        {{ form.art4(size=61) }}
-        {{ form.art4.label }}
-        {% for error in form.art4.errors %}
-            <span style="color: red;">[{ error }}]</span>
-        {% endfor %}
-        <br>
-        {{ form.reflection10.label }}
-        <br>
-        {{ form.reflection10(cols=64)}}
-    </p>
+        </p>
+    </div>
+    <div class="col">
+        <h4>art prompts</h4>
+        <p>
+            {{ form.art1(size=61) }}
+            {{ form.art1.label }}
+            {% for error in form.art1.errors %}
+                <span style="color: red;">[{ error }}]</span>
+            {% endfor %}
+            <br>
+            {{ form.reflection7.label }}
+            <br>
+            {{ form.reflection7(cols=64)}}
+        </p>
+        <p>
+            {{ form.art2(size=61) }}
+            {{ form.art2.label }}
+            {% for error in form.art2.errors %}
+                <span style="color: red;">[{ error }}]</span>
+            {% endfor %}
+            <br>
+            {{ form.reflection8.label }}
+            <br>
+            {{ form.reflection8(cols=64)}}
+        </p>
+        <p>
+            {{ form.art3(size=61) }}
+            {{ form.art3.label }}
+            {% for error in form.art3.errors %}
+                <span style="color: red;">[{ error }}]</span>
+            {% endfor %}
+            <br>
+            {{ form.reflection9.label }}
+            <br>
+            {{ form.reflection9(cols=64)}}
+        </p>
+        <p>
+            {{ form.art4(size=61) }}
+            {{ form.art4.label }}
+            {% for error in form.art4.errors %}
+                <span style="color: red;">[{ error }}]</span>
+            {% endfor %}
+            <br>
+            {{ form.reflection10.label }}
+            <br>
+            {{ form.reflection10(cols=64)}}
+        </p>
     <p>
         {{form.submit()}}
     </p>
+    </div>
+</div>
 </form>
 <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
 {% endblock %}

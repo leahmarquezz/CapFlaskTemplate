@@ -4,7 +4,6 @@
 # fields have types like IntField, StringField etc.  This uses the Mongoengine Python Library. When 
 # you interact with the data you are creating an onject that is an instance of the class.
 
-from pandas import BooleanDtype
 from app import app
 from flask import flash
 from flask_login import UserMixin
@@ -85,7 +84,7 @@ class HomeDef(Document):
     }
 
 class Challenge(Document):
-    author = ReferenceField('User',reverse_delete_rule=CASCADE)
+    author = ReferenceField('User',reverse_delete_rule=CASCADE, unique=True)
     write1 = BooleanField('whatever challenge 1 is')
     write2 = BooleanField('whatever challenge 2 is')
     write3 = BooleanField('whatever challenge 3 is')
